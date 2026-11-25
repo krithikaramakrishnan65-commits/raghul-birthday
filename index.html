@@ -1,0 +1,2739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday, Raghul! ✨</title>
+
+  <!--
+    ====================================================================
+    PERSONALIZATION QUICK GUIDE:
+    1. Use Find & Replace (Ctrl+H / Cmd+H) to replace:
+       - [Full Name]  -> Birthday person's full name
+       - [Nickname 1] -> First affectionate nickname
+       - [Nickname 2] -> Second affectionate nickname
+       - [Your Name / Someone who genuinely cares about you.] -> Your signature
+    2. Optional Background Music:
+       - Place an audio file named "music.mp3" in the same folder as this HTML file.
+       - If no file is present, the website handles it gracefully with zero errors.
+    3. Timeline Videos:
+       - Make a folder named "videos" next to this HTML file.
+       - Name the clips video1.mp4 ... video6.mp4 (one per chapter, in order).
+       - Clips play muted and on a loop when they scroll into view; the speaker
+         button on each clip turns its sound on (background music pauses meanwhile).
+       - Any chapter without a video keeps its illustration. Portrait (phone) clips
+         get a taller frame automatically. Captions are next to each clip in Section 3.
+    4. "Little Reminders" Card Photos:
+       - Put photos in a "photos" folder named card1.jpg ... card5.jpg
+         (Your Smile, Your Kindness, Your Personality, Our Silly Conversations,
+         You Have a Special Place in My Heart). The photo fills the card front;
+         any card without a photo keeps its icon.
+    ====================================================================
+  -->
+
+  <!-- Google Fonts: Playfair Display, Plus Jakarta Sans, Dancing Script -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ==================================================================
+       1. DESIGN TOKENS & RESET (WINE RED & CHAMPAGNE GOLD PALETTE)
+       ================================================================== */
+    :root {
+      --bg-sky-top: #FBF3F5;
+      --bg-sky-bottom: #F6E7EB;
+      --card-ivory: #FFFCFC;
+      --card-warm-white: #FEFAFB;
+      --accent-blue: #8B2346;
+      --accent-blue-hover: #6B1A35;
+      --accent-blue-soft: #F4DDE3;
+      --accent-blue-tint: rgba(139, 35, 70, 0.12);
+      --text-navy: #2B1219;
+      --text-slate: #6E4A55;
+      --gold: #DFC07A;
+      --gold-deep: #C9A456;
+      --gold-tint: rgba(223, 192, 122, 0.24);
+      --shadow-soft: 0 12px 34px rgba(43, 18, 25, 0.08);
+      --shadow-lift: 0 20px 44px rgba(139, 35, 70, 0.18);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --font-heading: 'Playfair Display', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-script: 'Dancing Script', cursive;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-sky-top);
+      background-image:
+        radial-gradient(circle at 14% 12%, rgba(223, 192, 122, 0.14), transparent 44%),
+        radial-gradient(circle at 86% 26%, rgba(139, 35, 70, 0.15), transparent 46%),
+        radial-gradient(circle at 50% 85%, rgba(244, 221, 227, 0.45), transparent 52%),
+        linear-gradient(180deg, var(--bg-sky-top) 0%, var(--bg-sky-bottom) 100%);
+      color: var(--text-navy);
+      line-height: 1.7;
+      overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.gate-locked {
+      overflow: hidden;
+      height: 100vh;
+      height: 100dvh;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-heading);
+      color: var(--text-navy);
+      line-height: 1.24;
+      font-weight: 600;
+    }
+
+    .script-text {
+      font-family: var(--font-script);
+      font-weight: 600;
+      color: var(--accent-blue);
+    }
+
+    /* ==================================================================
+       2. DECORATIVE AMBIENT LAYERS (STRICTLY pointer-events: none)
+       ================================================================== */
+    .ambient-layer {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .bokeh {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(48px);
+      opacity: 0.46;
+      pointer-events: none;
+      will-change: transform;
+      animation: bokehFloat 18s ease-in-out infinite alternate;
+    }
+
+    .bokeh-1 {
+      width: 290px;
+      height: 290px;
+      background: rgba(139, 35, 70, 0.24);
+      top: -70px;
+      left: -60px;
+      animation-duration: 20s;
+    }
+
+    .bokeh-2 {
+      width: 330px;
+      height: 330px;
+      background: rgba(223, 192, 122, 0.26);
+      top: 34%;
+      right: -95px;
+      animation-duration: 24s;
+      animation-delay: -5s;
+    }
+
+    .bokeh-3 {
+      width: 270px;
+      height: 270px;
+      background: rgba(244, 221, 227, 0.55);
+      bottom: -50px;
+      left: 16%;
+      animation-duration: 22s;
+      animation-delay: -9s;
+    }
+
+    @keyframes bokehFloat {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(24px, -26px, 0) scale(1.07); }
+      100% { transform: translate3d(-18px, 18px, 0) scale(0.96); }
+    }
+
+    #ambient-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2000;
+    }
+
+    /* ==================================================================
+       3. FLOATING AUDIO TOGGLE (TOP-RIGHT, z-index: 1500)
+       ================================================================== */
+    .audio-control-wrap {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 1500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .audio-tooltip {
+      background: rgba(255, 252, 252, 0.96);
+      color: var(--text-navy);
+      font-size: 0.78rem;
+      font-weight: 500;
+      padding: 7px 13px;
+      border-radius: 999px;
+      border: 1px solid rgba(223, 192, 122, 0.6);
+      box-shadow: 0 8px 20px rgba(43, 18, 25, 0.08);
+      opacity: 0;
+      transform: translateX(8px);
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .audio-tooltip.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .audio-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid rgba(139, 35, 70, 0.32);
+      background: rgba(255, 252, 252, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--accent-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 22px rgba(43, 18, 25, 0.1);
+      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+
+    .audio-btn:hover,
+    .audio-btn:focus-visible {
+      transform: scale(1.06);
+      background: var(--card-ivory);
+      box-shadow: 0 10px 26px rgba(139, 35, 70, 0.24);
+      outline: none;
+    }
+
+    .audio-btn.playing::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(139, 35, 70, 0.5);
+      pointer-events: none;
+      animation: audioRing 2s ease-out infinite;
+    }
+
+    .audio-btn.unavailable {
+      color: var(--text-slate);
+      opacity: 0.82;
+    }
+
+    @keyframes audioRing {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      100% { transform: scale(1.28); opacity: 0; }
+    }
+
+    /* ==================================================================
+       4. SECTION 1: OPENING SCREEN GATE (z-index: 1000, FULL VIEWPORT)
+       ================================================================== */
+    #opening-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(244, 221, 227, 0.95), transparent 55%),
+        radial-gradient(circle at 82% 82%, rgba(223, 192, 122, 0.28), transparent 52%),
+        linear-gradient(160deg, var(--bg-sky-top) 0%, var(--bg-sky-bottom) 100%);
+      opacity: 1;
+      transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    #opening-gate.is-closing {
+      opacity: 0;
+      transform: scale(1.03);
+      pointer-events: none;
+    }
+
+    .gate-card {
+      width: 100%;
+      max-width: 440px;
+      padding: 44px 28px 40px;
+      text-align: center;
+      border-radius: 30px;
+      background: rgba(255, 252, 252, 0.86);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      box-shadow:
+        0 22px 54px rgba(139, 35, 70, 0.18),
+        inset 0 0 0 1px rgba(223, 192, 122, 0.35);
+      position: relative;
+      z-index: 5;
+      animation: cardFloatIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    @keyframes cardFloatIn {
+      from { opacity: 0; transform: translateY(22px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .envelope-glow {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 22px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(139, 35, 70, 0.18), rgba(223, 192, 122, 0.14) 62%, transparent 74%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: softGlow 3.2s ease-in-out infinite;
+    }
+
+    @keyframes softGlow {
+      0%, 100% { transform: translateY(0); filter: drop-shadow(0 6px 14px rgba(139, 35, 70, 0.25)); }
+      50% { transform: translateY(-5px); filter: drop-shadow(0 12px 22px rgba(139, 35, 70, 0.38)); }
+    }
+
+    .gate-heading {
+      font-size: clamp(1.9rem, 6vw, 2.4rem);
+      margin-bottom: 12px;
+      color: var(--text-navy);
+    }
+
+    .gate-heading .nickname {
+      font-family: var(--font-script);
+      font-size: 1.24em;
+      color: var(--accent-blue);
+      font-weight: 700;
+    }
+
+    .gate-subtitle {
+      font-size: 1rem;
+      color: var(--text-slate);
+      margin-bottom: 30px;
+      max-width: 315px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* High-Contrast Wine Red Button */
+    .btn-primary {
+      position: relative;
+      z-index: 10;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 54px;
+      padding: 14px 34px;
+      border: none;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #8B2346, #6B1A35);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      box-shadow: 0 10px 26px rgba(107, 26, 53, 0.36);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      animation: gentlePulse 2.6s ease-in-out infinite;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: linear-gradient(135deg, #7A1F3D, #561429);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 14px 32px rgba(107, 26, 53, 0.46);
+      outline: 2px solid rgba(223, 192, 122, 0.85);
+      outline-offset: 3px;
+    }
+
+    .btn-primary:active {
+      transform: translateY(0) scale(0.98);
+    }
+
+    @keyframes gentlePulse {
+      0%, 100% { box-shadow: 0 10px 26px rgba(107, 26, 53, 0.34), 0 0 0 0 rgba(139, 35, 70, 0.36); }
+      50% { box-shadow: 0 12px 30px rgba(107, 26, 53, 0.44), 0 0 0 12px rgba(139, 35, 70, 0); }
+    }
+
+    /* ==================================================================
+       5. MAIN CONTENT LAYOUT & SCROLL REVEAL UTILITIES
+       ================================================================== */
+    #main-content {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.85s ease 0.15s, visibility 0.85s ease;
+    }
+
+    #main-content.is-revealed {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .section {
+      width: 100%;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 76px 20px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 44px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent-blue-hover);
+      margin-bottom: 10px;
+      padding: 5px 15px;
+      border-radius: 999px;
+      background: var(--accent-blue-soft);
+      border: 1px solid rgba(139, 35, 70, 0.18);
+    }
+
+    .section-title {
+      font-size: clamp(1.78rem, 5vw, 2.55rem);
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: clamp(0.96rem, 2.5vw, 1.06rem);
+      color: var(--text-slate);
+    }
+
+    .divider-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 0 auto;
+      width: 170px;
+      color: var(--gold-deep);
+      opacity: 0.88;
+    }
+
+    .divider-ornament::before,
+    .divider-ornament::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                  transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==================================================================
+       6. SECTION 2: HERO / BIRTHDAY CELEBRATION
+       ================================================================== */
+    .hero-section {
+      min-height: 92vh;
+      min-height: 92dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 96px;
+      padding-bottom: 64px;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(255, 252, 252, 0.9);
+      border: 1px solid rgba(223, 192, 122, 0.55);
+      color: var(--accent-blue-hover);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 18px rgba(43, 18, 25, 0.05);
+    }
+
+    .hero-title {
+      font-size: clamp(2.25rem, 7vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 22px;
+      max-width: 790px;
+      line-height: 1.18;
+    }
+
+    .hero-title .highlight-name {
+      background: linear-gradient(135deg, #5E1730, #8B2346, #C9A456);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtext {
+      font-size: clamp(1.02rem, 2.8vw, 1.2rem);
+      color: var(--text-slate);
+      max-width: 590px;
+      margin: 0 auto 44px;
+      line-height: 1.82;
+    }
+
+    .scroll-cue {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent-blue);
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 600;
+      padding: 12px 22px;
+      min-height: 46px;
+      border-radius: 999px;
+      background: rgba(255, 252, 252, 0.72);
+      border: 1px solid rgba(139, 35, 70, 0.22);
+      transition: background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .scroll-cue:hover,
+    .scroll-cue:focus-visible {
+      background: var(--card-ivory);
+      transform: translateY(-2px);
+      outline: none;
+    }
+
+    .scroll-cue .arrow {
+      display: inline-block;
+      animation: bounceDown 2s ease-in-out infinite;
+    }
+
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    /* ==================================================================
+       7. SECTION 3: OUR TIMELINE TOGETHER (RESPONSIVE POLAROID TIMELINE)
+       ================================================================== */
+    .together-timeline {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 0 24px;
+    }
+
+    /* Blue & Champagne Gold Vertical Spine */
+    .together-timeline::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 20px;
+      width: 2.5px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        var(--accent-blue) 8%,
+        var(--gold) 50%,
+        var(--accent-blue) 92%,
+        transparent 100%
+      );
+      border-radius: 999px;
+      opacity: 0.8;
+    }
+
+    .timeline-item {
+      position: relative;
+      width: 100%;
+      padding-left: 54px;
+      padding-bottom: 44px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 8px;
+    }
+
+    /* Glowing Star / Sparkle Milestone Node */
+    .timeline-marker {
+      position: absolute;
+      top: 22px;
+      left: 21px;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--card-ivory);
+      border: 2px solid var(--accent-blue);
+      color: var(--gold-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+      box-shadow:
+        0 0 0 5px rgba(251, 243, 245, 0.96),
+        0 0 18px rgba(139, 35, 70, 0.34);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .timeline-item:hover .timeline-marker,
+    .timeline-item:focus-within .timeline-marker {
+      transform: translateX(-50%) scale(1.14);
+      box-shadow:
+        0 0 0 6px rgba(251, 243, 245, 0.96),
+        0 0 24px rgba(223, 192, 122, 0.62);
+    }
+
+    .timeline-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2px;
+      margin-bottom: 24px;
+    }
+
+    /* Small gold sparkle under each title */
+    .timeline-meta::after {
+      content: "\2726";
+      color: var(--gold-deep);
+      font-size: 0.8rem;
+      line-height: 1;
+      opacity: 0.9;
+    }
+
+    .timeline-date-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent-blue-hover);
+      background: linear-gradient(135deg, var(--card-ivory), var(--accent-blue-soft));
+      border: 1px solid rgba(201, 164, 86, 0.55);
+      box-shadow: 0 4px 12px rgba(43, 18, 25, 0.05);
+    }
+
+    .timeline-chapter {
+      font-family: var(--font-heading);
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(1.3rem, 3.6vw, 1.55rem);
+      letter-spacing: 0.01em;
+      line-height: 1.3;
+      color: var(--accent-blue); /* wine red accent */
+    }
+
+    .polaroid-card {
+      background: var(--card-ivory);
+      padding: 14px 14px 22px;
+      border-radius: 14px;
+      box-shadow:
+        0 14px 32px rgba(43, 18, 25, 0.08),
+        0 2px 6px rgba(43, 18, 25, 0.04);
+      border: 1px solid rgba(223, 192, 122, 0.38);
+      transform: rotate(var(--tilt, 0deg));
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.4s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    /* Champagne masking tape accent */
+    .polaroid-card::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      width: 68px;
+      height: 20px;
+      background: rgba(223, 192, 122, 0.32);
+      border-left: 1px dashed rgba(201, 164, 86, 0.56);
+      border-right: 1px dashed rgba(201, 164, 86, 0.56);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+
+    .timeline-item:nth-child(odd) .polaroid-card { --tilt: -1.5deg; }
+    .timeline-item:nth-child(even) .polaroid-card { --tilt: 1.5deg; }
+
+    .polaroid-card:hover,
+    .polaroid-card:focus-within,
+    .polaroid-card.is-lifted {
+      transform: rotate(0deg) translateY(-8px) scale(1.02);
+      box-shadow: var(--shadow-lift);
+      z-index: 5;
+    }
+
+    .polaroid-frame {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--accent-blue-soft);
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .polaroid-frame > img,
+    .polaroid-frame > svg,
+    .polaroid-frame > video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Videos stay hidden until the file actually loads */
+    .polaroid-frame > video { display: none; background: var(--text-navy); }
+    .polaroid-frame.has-video > video { display: block; }
+    .polaroid-frame.has-video > svg { display: none; }
+    .polaroid-frame.is-portrait { aspect-ratio: 4 / 5; }
+
+    .video-sound-btn {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 2;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      background: rgba(43, 18, 25, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .polaroid-frame.has-video .video-sound-btn { display: inline-flex; }
+    .polaroid-frame.has-video.no-audio .video-sound-btn { display: none; }
+
+    .video-sound-btn:hover,
+    .video-sound-btn:focus-visible {
+      transform: scale(1.08);
+      background: var(--accent-blue);
+      outline: 2px solid rgba(223, 192, 122, 0.85);
+      outline-offset: 2px;
+    }
+
+    .video-sound-btn .icon-sound-on { display: none; }
+    .polaroid-frame.sound-on .video-sound-btn .icon-sound-on { display: block; }
+    .polaroid-frame.sound-on .video-sound-btn .icon-sound-off { display: none; }
+    .polaroid-frame.sound-on .video-sound-btn { background: var(--accent-blue); }
+
+    .polaroid-caption {
+      font-family: var(--font-script);
+      font-size: 1.52rem;
+      color: var(--accent-blue);
+      text-align: center;
+      line-height: 1.3;
+      padding: 0 6px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-note {
+      font-size: 0.9rem;
+      color: var(--text-slate);
+      text-align: center;
+      line-height: 1.6;
+      padding: 0 8px;
+    }
+
+    @media (min-width: 768px) {
+      .together-timeline::before {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        width: 50%;
+        padding-bottom: 52px;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+        padding-left: 0;
+        padding-right: 48px;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+        padding-left: 48px;
+        padding-right: 0;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-marker {
+        left: auto;
+        right: -17px;
+        transform: none;
+      }
+
+      .timeline-item:nth-child(even) .timeline-marker {
+        left: -17px;
+        transform: none;
+      }
+
+      .timeline-item:nth-child(odd):hover .timeline-marker,
+      .timeline-item:nth-child(odd):focus-within .timeline-marker,
+      .timeline-item:nth-child(even):hover .timeline-marker,
+      .timeline-item:nth-child(even):focus-within .timeline-marker {
+        transform: scale(1.14);
+      }
+
+      .timeline-item:nth-child(odd) .timeline-meta {
+        align-items: center;
+      }
+
+      .timeline-item.reveal:nth-child(odd) {
+        transform: translateX(-28px) translateY(16px);
+      }
+
+      .timeline-item.reveal:nth-child(even) {
+        transform: translateX(28px) translateY(16px);
+      }
+
+      .timeline-item.reveal.is-visible {
+        transform: translateX(0) translateY(0);
+      }
+    }
+
+    /* ==================================================================
+       8. SECTION 4: 5 INTERACTIVE 3D FLIP CARDS
+       ================================================================== */
+    .flip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .flip-card {
+      width: 100%;
+      max-width: 310px;
+      height: 290px;
+      perspective: 1100px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      padding: 0;
+      text-align: center;
+      font-family: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @media (min-width: 640px) {
+      .flip-card {
+        width: calc(50% - 14px);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .flip-card {
+        width: calc(33.333% - 16px);
+      }
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flip-card.is-flipped .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card:focus-visible .flip-face {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 3px;
+    }
+
+    .flip-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: var(--radius-lg);
+      padding: 26px 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(223, 192, 122, 0.42);
+    }
+
+    .flip-front {
+      background: var(--card-ivory);
+      background-image: radial-gradient(circle at top right, rgba(244, 221, 227, 0.75), transparent 65%);
+    }
+
+    .flip-icon-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--accent-blue-tint);
+      color: var(--accent-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      border: 1px solid rgba(223, 192, 122, 0.55);
+    }
+
+    .flip-photo { display: none; }
+
+    /* Card front with a photo: photo fills the whole card, title sits on top */
+    .flip-front.has-photo {
+      justify-content: flex-end;
+      padding: 0 18px 20px;
+      overflow: hidden;
+      background: var(--text-navy);
+      border-color: rgba(223, 192, 122, 0.6);
+    }
+
+    .flip-front.has-photo .flip-icon-wrap {
+      position: absolute;
+      inset: 0;
+      width: auto;
+      height: auto;
+      margin: 0;
+      border: none;
+      border-radius: 0;
+      background: none;
+      z-index: 0;
+    }
+
+    .flip-front.has-photo .flip-icon-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(43, 18, 25, 0) 40%, rgba(43, 18, 25, 0.35) 62%, rgba(43, 18, 25, 0.82) 100%);
+      pointer-events: none;
+    }
+
+    .flip-front.has-photo .flip-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .flip-card:hover .flip-front.has-photo .flip-photo,
+    .flip-card:focus-visible .flip-front.has-photo .flip-photo {
+      transform: scale(1.05);
+    }
+
+    .flip-front.has-photo .flip-icon-wrap > svg { display: none; }
+
+    .flip-front.has-photo .flip-front-title,
+    .flip-front.has-photo .flip-hint {
+      position: relative;
+      z-index: 1;
+    }
+
+    .flip-front.has-photo .flip-front-title {
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    }
+
+    .flip-front.has-photo .flip-hint {
+      color: var(--text-navy);
+      background: rgba(255, 252, 252, 0.9);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(223, 192, 122, 0.7);
+    }
+
+    .flip-front-title {
+      font-family: var(--font-heading);
+      font-size: 1.22rem;
+      color: var(--text-navy);
+      margin-bottom: 10px;
+    }
+
+    .flip-hint {
+      font-size: 0.78rem;
+      color: var(--accent-blue);
+      letter-spacing: 0.04em;
+      font-weight: 500;
+    }
+
+    .flip-back {
+      background: linear-gradient(155deg, #FFFCFC 0%, #F9EBEF 100%);
+      border: 1.5px solid rgba(139, 35, 70, 0.4);
+      transform: rotateY(180deg);
+      box-shadow: var(--shadow-lift);
+    }
+
+    .flip-back-label {
+      font-family: var(--font-script);
+      font-size: 1.42rem;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+    }
+
+    .flip-back-text {
+      font-size: 0.93rem;
+      color: var(--text-navy);
+      line-height: 1.65;
+    }
+
+    /* Longer messages: tighter type so the whole note fits on the card */
+    .flip-back--long {
+      padding: 18px 18px;
+    }
+
+    .flip-back--long .flip-back-label {
+      font-size: 1.22rem;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+
+    .flip-back--long .flip-back-text {
+      font-size: 0.8rem;
+      line-height: 1.55;
+    }
+
+    /* ==================================================================
+       9. SECTION 5: MY HEART'S MESSAGE (LETTER STATIONERY)
+       ================================================================== */
+    .letter-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .letter-card {
+      background-color: var(--card-ivory);
+      background-image:
+        radial-gradient(rgba(139, 35, 70, 0.07) 1px, transparent 0),
+        linear-gradient(180deg, rgba(255, 252, 252, 0.98), rgba(253, 246, 248, 0.98));
+      background-size: 22px 22px, 100% 100%;
+      border-radius: 26px;
+      padding: clamp(32px, 6vw, 60px) clamp(24px, 6vw, 56px);
+      box-shadow:
+        0 20px 54px rgba(43, 18, 25, 0.09),
+        0 4px 14px rgba(139, 35, 70, 0.08);
+      border: 1.5px solid rgba(201, 164, 86, 0.58);
+      position: relative;
+    }
+
+    /* Delicate double champagne-gold inner border */
+    .letter-card::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(223, 192, 122, 0.55);
+      pointer-events: none;
+    }
+
+    .letter-wax-seal {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8B2346, #6B1A35);
+      color: #FFFCFC;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 6px 16px rgba(107, 26, 53, 0.34);
+      border: 2px solid rgba(223, 192, 122, 0.78);
+    }
+
+    .letter-body {
+      position: relative;
+      z-index: 1;
+      font-size: clamp(1.02rem, 2.6vw, 1.12rem);
+      line-height: 1.95;
+      color: var(--text-navy);
+    }
+
+    .letter-para {
+      margin-bottom: 1.25em;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.85s ease, transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .letter-para.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .letter-salutation {
+      font-family: var(--font-script);
+      font-size: clamp(1.85rem, 5vw, 2.25rem);
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .letter-signoff {
+      margin-top: 2rem;
+      margin-bottom: 0;
+    }
+
+    .letter-signature {
+      display: block;
+      font-family: var(--font-script);
+      font-size: clamp(1.6rem, 4.5vw, 2rem);
+      color: var(--accent-blue);
+      margin-top: 6px;
+      line-height: 1.35;
+    }
+
+    /* ==================================================================
+       10. SECTION 6: INTERACTIVE BIRTHDAY CAKE & FINAL MESSAGE
+       ================================================================== */
+    .wish-stage {
+      text-align: center;
+      margin-bottom: 44px;
+    }
+
+    .cake-button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 18px 26px;
+      border-radius: 28px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cake-button:hover,
+    .cake-button:focus-visible {
+      transform: scale(1.03);
+      background: rgba(255, 252, 252, 0.72);
+      outline: none;
+    }
+
+    .cake-svg {
+      width: 260px;
+      max-width: 78vw;
+      height: auto;
+      overflow: visible;
+      filter: drop-shadow(0 14px 24px rgba(43, 18, 25, 0.1));
+    }
+
+    .candle-flame {
+      transform-origin: center bottom;
+      transform-box: fill-box;
+      animation: flameFlicker 0.9s ease-in-out infinite alternate;
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .candle-flame.delay-1 { animation-delay: -0.25s; animation-duration: 0.78s; }
+    .candle-flame.delay-2 { animation-delay: -0.55s; animation-duration: 1.05s; }
+
+    @keyframes flameFlicker {
+      0% { transform: scale(1, 1) rotate(-2deg); opacity: 0.95; }
+      50% { transform: scale(1.07, 0.94) rotate(2deg); opacity: 1; }
+      100% { transform: scale(0.95, 1.08) rotate(-1deg); opacity: 0.92; }
+    }
+
+    .flame-glow {
+      animation: glowPulse 1.4s ease-in-out infinite alternate;
+      transition: opacity 0.45s ease;
+    }
+
+    @keyframes glowPulse {
+      from { opacity: 0.35; }
+      to { opacity: 0.68; }
+    }
+
+    .smoke-puff {
+      opacity: 0;
+      transform-origin: center;
+      transform-box: fill-box;
+    }
+
+    .cake-button.wished .candle-flame,
+    .cake-button.wished .flame-glow {
+      opacity: 0;
+      transform: scale(0.2);
+      animation: none;
+    }
+
+    .cake-button.wished .smoke-puff {
+      animation: smokeRise 1.9s ease-out forwards;
+    }
+
+    .cake-button.wished .smoke-puff.s2 { animation-delay: 0.12s; }
+    .cake-button.wished .smoke-puff.s3 { animation-delay: 0.22s; }
+
+    @keyframes smokeRise {
+      0% { opacity: 0; transform: translateY(4px) scale(0.5); }
+      25% { opacity: 0.65; }
+      100% { opacity: 0; transform: translateY(-34px) translateX(6px) scale(1.7); }
+    }
+
+    .wish-prompt {
+      margin-top: 16px;
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--accent-blue-hover);
+      background: rgba(255, 252, 252, 0.94);
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(223, 192, 122, 0.6);
+      box-shadow: 0 8px 20px rgba(43, 18, 25, 0.06);
+      display: inline-block;
+      transition: all 0.4s ease;
+    }
+
+    .cake-button.wished .wish-prompt {
+      background: linear-gradient(135deg, rgba(244, 221, 227, 0.75), rgba(223, 192, 122, 0.28));
+      color: var(--text-navy);
+    }
+
+    /* Final Message Card */
+    .final-card {
+      max-width: 660px;
+      margin: 0 auto;
+      background: linear-gradient(160deg, var(--card-ivory) 0%, #F9ECF0 100%);
+      border-radius: 28px;
+      padding: clamp(32px, 6vw, 52px) clamp(24px, 6vw, 48px);
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(139, 35, 70, 0.14);
+      border: 1.5px solid rgba(223, 192, 122, 0.56);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--gold), var(--accent-blue-hover));
+    }
+
+    .final-heading {
+      font-size: clamp(1.7rem, 5vw, 2.3rem);
+      margin-bottom: 20px;
+      color: var(--text-navy);
+    }
+
+    .final-lines p {
+      font-size: clamp(1.02rem, 2.6vw, 1.14rem);
+      color: var(--text-navy);
+      margin-bottom: 14px;
+      line-height: 1.8;
+    }
+
+    .final-lines p:last-child {
+      margin-top: 22px;
+      margin-bottom: 0;
+      font-family: var(--font-script);
+      font-size: clamp(1.65rem, 4.5vw, 2.05rem);
+      color: var(--accent-blue);
+    }
+
+    /* Footer & Replay Button */
+    .site-footer {
+      text-align: center;
+      padding: 36px 20px 64px;
+    }
+
+    .btn-replay {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      background: rgba(255, 252, 252, 0.92);
+      border: 1px solid rgba(139, 35, 70, 0.36);
+      color: var(--accent-blue-hover);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(43, 18, 25, 0.06);
+      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .btn-replay:hover,
+    .btn-replay:focus-visible {
+      transform: translateY(-2px);
+      background: var(--card-ivory);
+      box-shadow: 0 10px 24px rgba(139, 35, 70, 0.18);
+      outline: none;
+    }
+
+    /* Reduced Motion Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal, .letter-para {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+    /* Letter extras */
+    .letter-title { font-family: var(--font-script); font-weight: 600; color: var(--accent-blue); font-size: clamp(1.9rem, 5.5vw, 2.7rem); }
+    .letter-highlight { background: var(--accent-blue-soft); border-left: 3px solid var(--gold-deep); padding: 12px 16px; border-radius: 10px; color: var(--accent-blue-hover); }
+    .letter-wish { font-family: var(--font-script); font-size: clamp(1.7rem, 4.8vw, 2.1rem); color: var(--accent-blue); text-align: center; line-height: 1.3; margin-top: 1.6em; }
+    .letter-quote { text-align: center; color: var(--text-slate); }
+    .final-heading em { font-style: italic; }
+    .final-lines p:last-child em { font-style: normal; }
+
+    /* Moon section */
+    .moon-card { max-width: 640px; margin: 0 auto; text-align: center; padding: clamp(28px, 6vw, 44px) clamp(20px, 5vw, 40px); border-radius: 28px;
+      background: radial-gradient(circle at 50% 20%, #3A1626 0%, #1E0B14 70%); color: #F7E9EE; border: 1.5px solid rgba(223, 192, 122, 0.55);
+      box-shadow: 0 20px 50px rgba(43, 18, 25, 0.25); }
+    .moon-orb { width: min(220px, 60vw); aspect-ratio: 1; margin: 0 auto 26px; border-radius: 50%; overflow: hidden;
+      box-shadow: 0 0 40px rgba(255, 240, 220, 0.18), 0 0 90px rgba(223, 192, 122, 0.12); animation: moonGlow 6s ease-in-out infinite; }
+    .moon-orb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    @keyframes moonGlow { 50% { box-shadow: 0 0 55px rgba(255, 240, 220, 0.28), 0 0 110px rgba(223, 192, 122, 0.2); } }
+    .moon-facts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 20px; }
+    .moon-fact { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(223, 192, 122, 0.35); border-radius: 14px; padding: 12px 10px; display: flex; flex-direction: column; gap: 4px; }
+    .moon-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+    .moon-value { font-family: var(--font-heading); font-size: 1.05rem; color: #FFFFFF; }
+    .moon-note { font-size: 0.98rem; line-height: 1.7; color: #EBD3DB; }
+    .letter-image { margin: 0 auto; max-width: 680px; }
+    .letter-image img { width: 100%; height: auto; display: block; border-radius: 22px; border: 1.5px solid rgba(201, 164, 86, 0.58); box-shadow: 0 20px 54px rgba(43, 18, 25, 0.14); }
+  </style>
+</head>
+
+<body class="gate-locked">
+  <!-- Background Audio Element (Place music.mp3 in same folder; fails gracefully if absent) -->
+  <audio id="bg-music" src="music.mp4" loop preload="auto"></audio>
+
+  <!-- Ambient Bokeh Lights & Drifting Petals / Confetti Canvases (All pointer-events: none) -->
+  <div class="ambient-layer" aria-hidden="true">
+    <div class="bokeh bokeh-1"></div>
+    <div class="bokeh bokeh-2"></div>
+    <div class="bokeh bokeh-3"></div>
+  </div>
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Floating Minimal Audio Toggle (Top-Right, z-index: 1500) -->
+  <div class="audio-control-wrap">
+    <span id="audio-tooltip" class="audio-tooltip" role="status" aria-live="polite">
+      Audio paused
+    </span>
+    <button
+      id="audio-toggle"
+      class="audio-btn"
+      type="button"
+      aria-label="Play or pause background music"
+      title="Toggle music"
+    >
+      <svg id="audio-icon-play" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M9 18V5l12-2v13"></path>
+        <circle cx="6" cy="18" r="3"></circle>
+        <circle cx="18" cy="16" r="3"></circle>
+      </svg>
+      <svg id="audio-icon-pause" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none;" aria-hidden="true">
+        <rect x="6" y="4" width="4" height="16" rx="1"></rect>
+        <rect x="14" y="4" width="4" height="16" rx="1"></rect>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ==================================================================
+       1. OPENING SCREEN (FULL-VIEWPORT GATE, z-index: 1000)
+       ================================================================== -->
+  <section id="opening-gate" aria-label="Birthday Surprise Opening Screen">
+    <div class="gate-card">
+      <div class="envelope-glow" aria-hidden="true">
+        <!-- Softly Glowing Serene Blue & Champagne Gold Envelope SVG -->
+        <svg width="54" height="54" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="16" width="52" height="36" rx="8" fill="#FFFCFC" stroke="#8B2346" stroke-width="2.4"/>
+          <path d="M8 20L32 37L56 20" stroke="#8B2346" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M32 13L34.5 19L40.8 21.2L34.5 23.4L32 29.4L29.5 23.4L23.2 21.2L29.5 19L32 13Z" fill="#DFC07A"/>
+          <circle cx="51" cy="12" r="2.3" fill="#8B2346"/>
+          <circle cx="13" cy="12" r="1.9" fill="#DFC07A"/>
+        </svg>
+      </div>
+
+      <h1 class="gate-heading">
+        Hey <span class="nickname">Raghul</span> 💕
+      </h1>
+      <p class="gate-subtitle">
+        Krithi has a little surprise waiting just for you.
+      </p>
+
+      <button id="open-surprise-btn" class="btn-primary" type="button">
+        Open Your Surprise ✨
+      </button>
+    </div>
+  </section>
+
+  <!-- ==================================================================
+       MAIN WEBSITE CONTENT
+       ================================================================== -->
+  <main id="main-content" aria-hidden="true">
+
+    <!-- 2. HERO / BIRTHDAY CELEBRATION SECTION -->
+    <section id="hero" class="section hero-section">
+      <div class="hero-badge reveal">
+        <span>✨</span>
+        <span>A Special Day For Someone Special</span>
+        <span>✨</span>
+      </div>
+
+      <h1 class="hero-title reveal" style="font-style: italic;">
+        Happy Birthday, <span class="highlight-name">Raghul</span>♥️
+      </h1>
+
+      <p class="hero-subtext reveal">
+        May life surprise you with endless happiness, beautiful opportunities, countless achievements and a thousand reasons to smile. You deserve all the wonderful things coming your way.
+      </p>
+
+      <a href="#memories" id="scroll-cue-btn" class="scroll-cue reveal">
+        <span>A little surprise awaits you</span>
+        <span class="arrow" aria-hidden="true">↓</span>
+      </a>
+    </section>
+
+    <div class="divider-ornament" aria-hidden="true">✦</div>
+
+    <!-- 3. MEMORIES SECTION — "OUR TIMELINE TOGETHER" -->
+    <section id="memories" class="section">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Shared Moments</span>
+        <h2 class="section-title">Happiness of Having You</h2>
+        <p class="section-subtitle">
+          From random beginnings to memories worth keeping, here's a little look back at some moments that made me smile.
+        </p>
+      </header>
+
+      <div class="together-timeline">
+
+        <!-- CHAPTER 01: WHERE IT ALL STARTED -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.3 6.7L21 11l-6.7 2.3L12 20l-2.3-6.7L3 11l6.7-2.3L12 2z"/>
+            </svg>
+          </div>
+          <div class="timeline-meta">
+            <h3 class="timeline-chapter">Where It All Started</h3>
+          </div>
+          <article class="polaroid-card" tabindex="0">
+            <div class="polaroid-frame">
+              <!-- VIDEO: put videos/video1.mp4 next to this page. If it is missing, the illustration below shows instead. -->
+              <video class="memory-video" src="videos/video1.mp4" muted loop playsinline preload="metadata" aria-label="Where It All Started"></video>
+              <button class="video-sound-btn" type="button" aria-pressed="false" aria-label="Turn video sound on">
+                <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+              </button>
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Serene blue morning sky illustration">
+                <defs>
+                  <linearGradient id="blueSky1" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#D48A9E"/>
+                    <stop offset="56%" stop-color="#F3D9E0"/>
+                    <stop offset="100%" stop-color="#F7F2E4"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#blueSky1)"/>
+                <circle cx="200" cy="146" r="44" fill="#FFFCFC" opacity="0.92"/>
+                <circle cx="200" cy="146" r="64" fill="#DFC07A" opacity="0.28"/>
+                <path d="M0 214 Q105 178 215 212 T400 198 L400 300 L0 300 Z" fill="#B04A68" opacity="0.58"/>
+                <path d="M0 244 Q140 218 265 246 T400 232 L400 300 L0 300 Z" fill="#8B2346" opacity="0.8"/>
+                <circle cx="88" cy="68" r="3" fill="#FFFCFC" opacity="0.85"/>
+                <circle cx="314" cy="58" r="2.5" fill="#FFFCFC" opacity="0.85"/>
+              </svg>
+            </div>
+            <p class="polaroid-caption">The day our paths crossed ✨</p>
+            <p class="timeline-note">A simple beginning that quietly brought so much warmth into my life.</p>
+          </article>
+        </div>
+
+        <!-- CHAPTER 02: EASY CONVERSATIONS -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.3 6.7L21 11l-6.7 2.3L12 20l-2.3-6.7L3 11l6.7-2.3L12 2z"/>
+            </svg>
+          </div>
+          <div class="timeline-meta">
+            <h3 class="timeline-chapter">Easy Conversations</h3>
+          </div>
+          <article class="polaroid-card" tabindex="0">
+            <div class="polaroid-frame">
+              <!-- VIDEO: put videos/video2.mp4 next to this page. If it is missing, the illustration below shows instead. -->
+              <video class="memory-video" src="videos/video2.mp4" muted loop playsinline preload="metadata" aria-label="Easy Conversations"></video>
+              <button class="video-sound-btn" type="button" aria-pressed="false" aria-label="Turn video sound on">
+                <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+              </button>
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cozy blue-toned coffee cups illustration">
+                <rect width="400" height="300" fill="#FAF0F3"/>
+                <circle cx="200" cy="150" r="106" fill="#F6E2E7" opacity="0.88"/>
+                <rect x="115" y="138" width="66" height="62" rx="14" fill="#FFFCFC" stroke="#8B2346" stroke-width="3"/>
+                <path d="M181 152 C196 152 196 178 181 178" fill="none" stroke="#8B2346" stroke-width="3"/>
+                <rect x="218" y="148" width="66" height="52" rx="14" fill="#FFFCFC" stroke="#C9A456" stroke-width="3"/>
+                <path d="M284 160 C298 160 298 182 284 182" fill="none" stroke="#C9A456" stroke-width="3"/>
+                <path d="M140 124 Q134 108 144 96" fill="none" stroke="#8B2346" stroke-width="2.5" stroke-linecap="round" opacity="0.65"/>
+                <path d="M158 124 Q152 110 162 98" fill="none" stroke="#8B2346" stroke-width="2.5" stroke-linecap="round" opacity="0.65"/>
+                <path d="M248 134 Q242 120 252 108" fill="none" stroke="#DFC07A" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+                <path d="M196 96L198.2 101.8L204 104L198.2 106.2L196 112L193.8 106.2L188 104L193.8 101.8L196 96Z" fill="#8B2346"/>
+              </svg>
+            </div>
+            <p class="polaroid-caption">Hours that felt like minutes</p>
+            <p class="timeline-note">Talking about everything and nothing, and always smiling by the end.</p>
+          </article>
+        </div>
+
+        <!-- CHAPTER 03: A DAY WELL SPENT -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.3 6.7L21 11l-6.7 2.3L12 20l-2.3-6.7L3 11l6.7-2.3L12 2z"/>
+            </svg>
+          </div>
+          <div class="timeline-meta">
+            <h3 class="timeline-chapter">A Day Well Spent</h3>
+          </div>
+          <article class="polaroid-card" tabindex="0">
+            <div class="polaroid-frame">
+              <!-- VIDEO: put videos/video3.mp4 next to this page. If it is missing, the illustration below shows instead. -->
+              <video class="memory-video" src="videos/video3.mp4" muted loop playsinline preload="metadata" aria-label="A Day Well Spent"></video>
+              <button class="video-sound-btn" type="button" aria-pressed="false" aria-label="Turn video sound on">
+                <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+              </button>
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dreamy midnight blue starry sky illustration">
+                <defs>
+                  <linearGradient id="blueSky3" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#2B1219"/>
+                    <stop offset="56%" stop-color="#6B1A35"/>
+                    <stop offset="100%" stop-color="#B5506E"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#blueSky3)"/>
+                <path d="M275 78 A34 34 0 1 0 315 124 A26 26 0 1 1 275 78 Z" fill="#F6E2A8"/>
+                <circle cx="85" cy="72" r="3" fill="#FFFCFC"/>
+                <circle cx="152" cy="54" r="2.2" fill="#DFC07A"/>
+                <circle cx="212" cy="96" r="2.5" fill="#FFFCFC"/>
+                <circle cx="118" cy="138" r="2" fill="#FFFCFC" opacity="0.85"/>
+                <circle cx="330" cy="160" r="2.5" fill="#DFC07A"/>
+                <path d="M0 240 Q120 205 240 235 T400 220 L400 300 L0 300 Z" fill="#2B1219" opacity="0.58"/>
+              </svg>
+            </div>
+            <p class="polaroid-caption">Simple plans, the best company</p>
+            <p class="timeline-note">Proof that where we go never matters as much as simply being together.</p>
+          </article>
+        </div>
+
+        <!-- CHAPTER 04: LITTLE EVERYDAY MOMENTS -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.3 6.7L21 11l-6.7 2.3L12 20l-2.3-6.7L3 11l6.7-2.3L12 2z"/>
+            </svg>
+          </div>
+          <div class="timeline-meta">
+            <h3 class="timeline-chapter">Little Everyday Moments</h3>
+          </div>
+          <article class="polaroid-card" tabindex="0">
+            <div class="polaroid-frame">
+              <!-- VIDEO: put videos/video4.mp4 next to this page. If it is missing, the illustration below shows instead. -->
+              <video class="memory-video" src="videos/video4.mp4" muted loop playsinline preload="metadata" aria-label="Little Everyday Moments"></video>
+              <button class="video-sound-btn" type="button" aria-pressed="false" aria-label="Turn video sound on">
+                <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+              </button>
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Soft powder-blue blossoms illustration">
+                <rect width="400" height="300" fill="#FBF2F4"/>
+                <circle cx="200" cy="145" r="92" fill="#F6E2E7"/>
+                <path d="M200 245 L200 135 M200 235 L155 155 M200 235 L245 155" stroke="#8A6070" stroke-width="4" stroke-linecap="round"/>
+                <circle cx="200" cy="118" r="28" fill="#8B2346" opacity="0.88"/>
+                <circle cx="200" cy="118" r="13" fill="#F4DDE3"/>
+                <circle cx="152" cy="148" r="22" fill="#DFC07A" opacity="0.88"/>
+                <circle cx="152" cy="148" r="10" fill="#FFF9EC"/>
+                <circle cx="248" cy="148" r="22" fill="#B04A68" opacity="0.9"/>
+                <circle cx="248" cy="148" r="10" fill="#FFFCFC"/>
+                <path d="M174 218 Q200 232 226 218" fill="none" stroke="#DFC07A" stroke-width="5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="polaroid-caption">Just being around each other</p>
+            <p class="timeline-note">Even the quiet, ordinary afternoons somehow turned into favourite memories.</p>
+          </article>
+        </div>
+
+        <!-- CHAPTER 05: ALWAYS IN EACH OTHER'S CORNER -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.3 6.7L21 11l-6.7 2.3L12 20l-2.3-6.7L3 11l6.7-2.3L12 2z"/>
+            </svg>
+          </div>
+          <div class="timeline-meta">
+            <h3 class="timeline-chapter">Always in Each Other's Corner</h3>
+          </div>
+          <article class="polaroid-card" tabindex="0">
+            <div class="polaroid-frame">
+              <!-- VIDEO: put videos/video5.mp4 next to this page. If it is missing, the illustration below shows instead. -->
+              <video class="memory-video" src="videos/video5.mp4" muted loop playsinline preload="metadata" aria-label="Always in Each Other's Corner"></video>
+              <button class="video-sound-btn" type="button" aria-pressed="false" aria-label="Turn video sound on">
+                <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+              </button>
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Floating blue and gold lanterns illustration">
+                <defs>
+                  <linearGradient id="blueSky5" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#F4DDE3"/>
+                    <stop offset="100%" stop-color="#FDF7F8"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#blueSky5)"/>
+                <rect x="118" y="110" width="38" height="52" rx="14" fill="#B04A68" opacity="0.9"/>
+                <rect x="128" y="162" width="18" height="6" rx="2" fill="#DFC07A"/>
+                <rect x="195" y="72" width="46" height="64" rx="16" fill="#DFC07A" opacity="0.9"/>
+                <rect x="208" y="136" width="20" height="7" rx="2" fill="#8B2346"/>
+                <rect x="268" y="132" width="34" height="46" rx="12" fill="#8B2346" opacity="0.86"/>
+                <rect x="277" y="178" width="16" height="6" rx="2" fill="#DFC07A"/>
+                <circle cx="90" cy="70" r="4" fill="#DFC07A" opacity="0.65"/>
+                <circle cx="322" cy="84" r="5" fill="#8B2346" opacity="0.35"/>
+              </svg>
+            </div>
+            <p class="polaroid-caption">Through the quiet days and the loud ones</p>
+            <p class="timeline-note">Having someone you can simply be yourself around is a rare gift.</p>
+          </article>
+        </div>
+
+        <!-- CHAPTER 06: HERE & NOW -->
+        <div class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2l2.3 6.7L21 11l-6.7 2.3L12 20l-2.3-6.7L3 11l6.7-2.3L12 2z"/>
+            </svg>
+          </div>
+          <div class="timeline-meta">
+            <h3 class="timeline-chapter">Here &amp; Now</h3>
+          </div>
+          <article class="polaroid-card" tabindex="0">
+            <div class="polaroid-frame">
+              <!-- VIDEO: put videos/video6.mp4 next to this page. If it is missing, the illustration below shows instead. -->
+              <video class="memory-video" src="videos/video6.mp4" muted loop playsinline preload="metadata" aria-label="Here and Now"></video>
+              <button class="video-sound-btn" type="button" aria-pressed="false" aria-label="Turn video sound on">
+                <svg class="icon-sound-off" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                <svg class="icon-sound-on" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+              </button>
+              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Serene blue horizon and golden star illustration">
+                <defs>
+                  <linearGradient id="blueSky6" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#F1D3DB"/>
+                    <stop offset="50%" stop-color="#FAEFF2"/>
+                    <stop offset="100%" stop-color="#F3DAE1"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="300" fill="url(#blueSky6)"/>
+                <circle cx="200" cy="142" r="64" fill="#FFFCFC" opacity="0.74"/>
+                <path d="M200 94L212 128L246 140L212 152L200 186L188 152L154 140L188 128L200 94Z" fill="#8B2346" opacity="0.88"/>
+                <circle cx="200" cy="140" r="10" fill="#DFC07A"/>
+                <circle cx="115" cy="95" r="4" fill="#DFC07A"/>
+                <circle cx="290" cy="185" r="4" fill="#DFC07A"/>
+                <circle cx="298" cy="92" r="3.5" fill="#FFFCFC"/>
+              </svg>
+            </div>
+            <p class="polaroid-caption">Grateful for every moment we've shared ✨</p>
+            <p class="timeline-note">Celebrating you today and wishing you the brightest year ahead, Raghulaa.</p>
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider-ornament" aria-hidden="true">✦</div>
+
+    <!-- 4. THINGS I APPRECIATE ABOUT YOU (5 INTERACTIVE FLIP CARDS) -->
+    <section id="appreciation" class="section">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">Little Reminders</span>
+        <h2 class="section-title">Here's What Makes You Special</h2>
+      </header>
+
+      <div class="flip-grid">
+        <!-- Card 1: Your Smile -->
+        <button class="flip-card reveal" type="button" aria-pressed="false">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-icon-wrap" aria-hidden="true">
+                <!-- PHOTO: photos/card1.jpg (falls back to the icon if missing) -->
+                <img class="flip-photo" src="photos/card1.jpg" alt="" decoding="async">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M8.5 14.2c1 1.6 2.3 2.3 3.5 2.3s2.5-.7 3.5-2.3"/>
+                  <circle cx="9.2" cy="10" r="0.8" fill="currentColor"/>
+                  <circle cx="14.8" cy="10" r="0.8" fill="currentColor"/>
+                </svg>
+              </div>
+              <h3 class="flip-front-title">Your Smile</h3>
+              <span class="flip-hint">Tap to read ✨</span>
+            </div>
+            <div class="flip-face flip-back">
+              <span class="flip-back-label">My Favourite Little Happiness</span>
+              <p class="flip-back-text">
+                Your smile has a way of making everything feel a little better. Even on an ordinary day, just seeing you happy brings a little happiness into my world.
+              </p>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 2: Your Kindness -->
+        <button class="flip-card reveal" type="button" aria-pressed="false">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-icon-wrap" aria-hidden="true">
+                <!-- PHOTO: photos/card2.jpg (falls back to the icon if missing) -->
+                <img class="flip-photo" src="photos/card2.jpg" alt="" decoding="async">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 21s-7-4.6-9.2-9.2C1.2 8.5 3.3 5 6.8 5c2 0 3.6 1 5.2 2.8C13.6 6 15.2 5 17.2 5c3.5 0 5.6 3.5 4 6.8C19 16.4 12 21 12 21z"/>
+                </svg>
+              </div>
+              <h3 class="flip-front-title">Your Kindness</h3>
+              <span class="flip-hint">Tap to read ✨</span>
+            </div>
+            <div class="flip-face flip-back">
+              <span class="flip-back-label">The Little Things You Do</span>
+              <p class="flip-back-text">
+                The way you care, the way you show up, and the way you express things without always saying them. You make the world softer just by being in it.
+              </p>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 3: Your Personality -->
+        <button class="flip-card reveal" type="button" aria-pressed="false">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-icon-wrap" aria-hidden="true">
+                <!-- PHOTO: photos/card3.jpg (falls back to the icon if missing) -->
+                <img class="flip-photo" src="photos/card3.jpg" alt="" decoding="async">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3l2.2 5.4L20 10.6l-5.4 2.2L12 18.5l-2.6-5.7L4 10.6l5.8-2.2L12 3z"/>
+                  <circle cx="19" cy="5" r="1" fill="#C9A456" stroke="#C9A456"/>
+                  <circle cx="5" cy="18" r="1" fill="#C9A456" stroke="#C9A456"/>
+                </svg>
+              </div>
+              <h3 class="flip-front-title">Your Personality</h3>
+              <span class="flip-hint">Tap to read ✨</span>
+            </div>
+            <div class="flip-face flip-back flip-back--long">
+              <span class="flip-back-label">My Favourite Kind of Human</span>
+              <p class="flip-back-text">
+                Your random thoughts, silly side and the way you see the world — there's something about every little part of you that I adore. You don't have to be perfect. Just keep being the person you are, because that's the person who became so special to me.
+              </p>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 4: Our Silly Conversations -->
+        <button class="flip-card reveal" type="button" aria-pressed="false">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-icon-wrap" aria-hidden="true">
+                <!-- PHOTO: photos/card4.jpg (falls back to the icon if missing) -->
+                <img class="flip-photo" src="photos/card4.jpg" alt="" decoding="async">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+              </div>
+              <h3 class="flip-front-title">Our Silly Conversations</h3>
+              <span class="flip-hint">Tap to read ✨</span>
+            </div>
+            <div class="flip-face flip-back flip-back--long">
+              <span class="flip-back-label">It's Never Just a Conversation</span>
+              <p class="flip-back-text">
+                From endless teasing and random arguments to unexpected deep talks, I love every bit of it. Time flies when I'm talking to you. Maybe it's not the conversations I love, but simply the person on the other side. ❤️
+              </p>
+            </div>
+          </div>
+        </button>
+
+        <!-- Card 5: You Have a Special Place in My Heart -->
+        <button class="flip-card reveal" type="button" aria-pressed="false">
+          <div class="flip-card-inner">
+            <div class="flip-face flip-front">
+              <div class="flip-icon-wrap" aria-hidden="true">
+                <!-- PHOTO: photos/card5.jpg (falls back to the icon if missing) -->
+                <img class="flip-photo" src="photos/card5.jpg" alt="" decoding="async">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+              </div>
+              <h3 class="flip-front-title">You Have a Special Place in My Heart</h3>
+              <span class="flip-hint">Tap to read ✨</span>
+            </div>
+            <div class="flip-face flip-back flip-back--long">
+              <span class="flip-back-label">Everything That Makes You Unique</span>
+              <p class="flip-back-text">
+                Somewhere along the way, you became a part of my thoughts, my smiles, and my little everyday moments of happiness. You may not realise just how much you mean to me, but if there's one thing I wish for, it's that you never forget how truly special you are to me. ❤️
+              </p>
+            </div>
+          </div>
+        </button>
+      </div>
+    </section>
+
+    <div class="divider-ornament" aria-hidden="true">✦</div>
+
+    <!-- 5. MY HEART'S MESSAGE (LETTER STATIONERY SECTION) -->
+    <section id="letter" class="section">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">From My Heart, To You ♡</span>
+      </header>
+
+      <div class="letter-wrapper">
+        <figure class="letter-image reveal"><img src="photos/letter.jpg" alt="Birthday letter from Krithi to Raghul"></figure>
+      </div>
+    </section>
+
+    <div class="divider-ornament" aria-hidden="true">✦</div>
+
+    <!-- 6. INTERACTIVE WISH & FINAL BIRTHDAY MESSAGE -->
+    <!-- MOON ON 10 DECEMBER 2001 -->
+    <section id="moon" class="section">
+      <header class="section-header reveal">
+        <span class="section-eyebrow">10 December 2001</span>
+        <h2 class="section-title">The Moon on the Night You Arrived</h2>
+        <p class="section-subtitle">The night the world got you, this is how the moon was shining.</p>
+      </header>
+      <div class="moon-card reveal">
+        <div class="moon-orb"><img src="photos/moon.jpg" alt="Waning crescent moon, as it looked on 10 December 2001"></div>
+        <div class="moon-facts">
+          <div class="moon-fact"><span class="moon-label">Phase</span><span class="moon-value">Waning Crescent 🌘</span></div>
+          <div class="moon-fact"><span class="moon-label">Moon's age</span><span class="moon-value">About 25 days</span></div>
+        </div>
+        <p class="moon-note">A small, gentle sliver of light in a quiet sky — just a few days before the new moon. Maybe that's why you bring light into the quietest moments. 🌙</p>
+      </div>
+    </section>
+
+    <div class="divider-ornament" aria-hidden="true">✦</div>
+
+    <section id="wish" class="section">
+      <!-- Interactive Pastel-Blue & Gold Birthday Cake -->
+      <div class="wish-stage reveal">
+        <button id="cake-button" class="cake-button" type="button" aria-label="Tap the candles to make a birthday wish">
+          <svg class="cake-svg" viewBox="0 0 260 244" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="tierRose" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#C46F87"/>
+                <stop offset="18%" stop-color="#E5A9B9"/>
+                <stop offset="42%" stop-color="#F7D9E1"/>
+                <stop offset="70%" stop-color="#E7AEBD"/>
+                <stop offset="100%" stop-color="#B25A74"/>
+              </linearGradient>
+              <linearGradient id="tierWine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#4F1228"/>
+                <stop offset="20%" stop-color="#7E1F40"/>
+                <stop offset="44%" stop-color="#A9385C"/>
+                <stop offset="72%" stop-color="#8B2346"/>
+                <stop offset="100%" stop-color="#45101F"/>
+              </linearGradient>
+              <linearGradient id="tierShade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#2B1219" stop-opacity="0.18"/>
+              </linearGradient>
+              <linearGradient id="icingSide" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#EADBD5"/>
+                <stop offset="45%" stop-color="#FFFDFB"/>
+                <stop offset="100%" stop-color="#E4D3CD"/>
+              </linearGradient>
+              <radialGradient id="icingTop" cx="45%" cy="40%" r="70%">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="100%" stop-color="#F1E4DF"/>
+              </radialGradient>
+              <radialGradient id="plateGrad" cx="50%" cy="35%" r="70%">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="70%" stop-color="#F4ECEC"/>
+                <stop offset="100%" stop-color="#DCCFD1"/>
+              </radialGradient>
+              <radialGradient id="goldBead" cx="35%" cy="35%" r="70%">
+                <stop offset="0%" stop-color="#FFF3CF"/>
+                <stop offset="55%" stop-color="#DFC07A"/>
+                <stop offset="100%" stop-color="#A9853E"/>
+              </radialGradient>
+              <radialGradient id="flameOuter" cx="50%" cy="72%" r="70%">
+                <stop offset="0%" stop-color="#FFF8D6"/>
+                <stop offset="40%" stop-color="#FFD54F"/>
+                <stop offset="75%" stop-color="#FFA53A"/>
+                <stop offset="100%" stop-color="#FF7A3D"/>
+              </radialGradient>
+              <radialGradient id="flameGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FFE29A" stop-opacity="0.9"/>
+                <stop offset="60%" stop-color="#FFC56B" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#FFB74D" stop-opacity="0"/>
+              </radialGradient>
+              <pattern id="stripeGold" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+                <rect width="7" height="7" fill="#FFF8F3"/>
+                <rect width="7" height="2.6" fill="#D9B565"/>
+              </pattern>
+              <pattern id="stripeWine" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(38)">
+                <rect width="7" height="7" fill="#FFF8F3"/>
+                <rect width="7" height="2.6" fill="#9E2F52"/>
+              </pattern>
+            </defs>
+
+            <!-- Cake stand / plate -->
+            <ellipse cx="130" cy="230" rx="104" ry="9" fill="rgba(43, 18, 25, 0.14)"/>
+            <ellipse cx="130" cy="221" rx="102" ry="14" fill="url(#plateGrad)" stroke="#DFC07A" stroke-width="1.6"/>
+            <ellipse cx="130" cy="217.5" rx="90" ry="9.5" fill="#FFFCFC" opacity="0.9"/>
+
+            <!-- Bottom tier (rose) -->
+            <path d="M46 150 L46 212 A84 10 0 0 0 214 212 L214 150 Z" fill="url(#tierRose)"/>
+            <path d="M46 150 L46 212 A84 10 0 0 0 214 212 L214 150 Z" fill="url(#tierShade)"/>
+            <path d="M52.0 189.7 Q65.0 199.3 78.0 193.9 M78.0 193.9 Q91.0 201.9 104.0 195.5 M104.0 195.5 Q117.0 202.9 130.0 196.0 M130.0 196.0 Q143.0 202.9 156.0 195.5 M156.0 195.5 Q169.0 201.9 182.0 193.9 M182.0 193.9 Q195.0 199.3 208.0 189.7" fill="none" stroke="#FFF7F2" stroke-width="3.2" stroke-linecap="round" opacity="0.95"/>
+            <circle cx="52.0" cy="189.7" r="2.6" fill="url(#goldBead)"/>
+            <circle cx="78.0" cy="193.9" r="2.6" fill="url(#goldBead)"/>
+            <circle cx="104.0" cy="195.5" r="2.6" fill="url(#goldBead)"/>
+            <circle cx="130.0" cy="196.0" r="2.6" fill="url(#goldBead)"/>
+            <circle cx="156.0" cy="195.5" r="2.6" fill="url(#goldBead)"/>
+            <circle cx="182.0" cy="193.9" r="2.6" fill="url(#goldBead)"/>
+            <circle cx="208.0" cy="189.7" r="2.6" fill="url(#goldBead)"/>
+            <path d="M46.0 150.0 L46.0 152.5 C49.0 152.5 49.0 163.4 54.4 163.4 C59.8 163.4 59.8 158.5 62.8 158.5 L62.8 158.5 C65.8 158.5 65.8 172.1 71.2 172.1 C76.6 172.1 76.6 160.5 79.6 160.5 L79.6 160.5 C82.6 160.5 82.6 165.7 88.0 165.7 C93.4 165.7 93.4 161.7 96.4 161.7 L96.4 161.7 C99.4 161.7 99.4 177.5 104.8 177.5 C110.2 177.5 110.2 162.3 113.2 162.3 L113.2 162.3 C116.2 162.3 116.2 169.9 121.6 169.9 C127.0 169.9 127.0 162.5 130.0 162.5 L130.0 162.5 C133.0 162.5 133.0 173.9 138.4 173.9 C143.8 173.9 143.8 162.3 146.8 162.3 L146.8 162.3 C149.8 162.3 149.8 167.5 155.2 167.5 C160.6 167.5 160.6 161.7 163.6 161.7 L163.6 161.7 C166.6 161.7 166.6 175.7 172.0 175.7 C177.4 175.7 177.4 160.5 180.4 160.5 L180.4 160.5 C183.4 160.5 183.4 168.1 188.8 168.1 C194.2 168.1 194.2 158.5 197.2 158.5 L197.2 158.5 C200.2 158.5 200.2 163.4 205.6 163.4 C211.0 163.4 211.0 152.5 214.0 152.5 L214.0 150.0 Z" fill="url(#icingSide)"/>
+            <ellipse cx="130" cy="150" rx="84" ry="10" fill="url(#icingTop)"/>
+            <circle cx="50.0" cy="213.5" r="3.4" fill="#FFF7F2"/>
+            <circle cx="59.5" cy="215.9" r="3.4" fill="#FFF7F2"/>
+            <circle cx="69.0" cy="217.4" r="3.4" fill="#FFF7F2"/>
+            <circle cx="78.5" cy="218.4" r="3.4" fill="#FFF7F2"/>
+            <circle cx="88.0" cy="219.2" r="3.4" fill="#FFF7F2"/>
+            <circle cx="97.5" cy="219.7" r="3.4" fill="#FFF7F2"/>
+            <circle cx="107.0" cy="220.1" r="3.4" fill="#FFF7F2"/>
+            <circle cx="116.5" cy="220.4" r="3.4" fill="#FFF7F2"/>
+            <circle cx="126.0" cy="220.5" r="3.4" fill="#FFF7F2"/>
+            <circle cx="135.5" cy="220.5" r="3.4" fill="#FFF7F2"/>
+            <circle cx="145.0" cy="220.3" r="3.4" fill="#FFF7F2"/>
+            <circle cx="154.5" cy="220.1" r="3.4" fill="#FFF7F2"/>
+            <circle cx="164.0" cy="219.6" r="3.4" fill="#FFF7F2"/>
+            <circle cx="173.5" cy="219.1" r="3.4" fill="#FFF7F2"/>
+            <circle cx="183.0" cy="218.3" r="3.4" fill="#FFF7F2"/>
+            <circle cx="192.5" cy="217.2" r="3.4" fill="#FFF7F2"/>
+            <circle cx="202.0" cy="215.7" r="3.4" fill="#FFF7F2"/>
+
+            <!-- Top tier (wine) -->
+            <path d="M75 102 L75 148 A55 7.5 0 0 0 185 148 L185 102 Z" fill="url(#tierWine)"/>
+            <path d="M75 102 L75 148 A55 7.5 0 0 0 185 148 L185 102 Z" fill="url(#tierShade)"/>
+            <path d="M75.0 102.0 L75.0 104.5 C77.5 104.5 77.5 113.6 81.9 113.6 C86.3 113.6 86.3 109.5 88.8 109.5 L88.8 109.5 C91.2 109.5 91.2 120.9 95.6 120.9 C100.0 120.9 100.0 111.0 102.5 111.0 L102.5 111.0 C105.0 111.0 105.0 115.0 109.4 115.0 C113.8 115.0 113.8 111.8 116.2 111.8 L116.2 111.8 C118.7 111.8 118.7 124.4 123.1 124.4 C127.5 124.4 127.5 112.0 130.0 112.0 L130.0 112.0 C132.5 112.0 132.5 118.4 136.9 118.4 C141.3 118.4 141.3 111.8 143.8 111.8 L143.8 111.8 C146.2 111.8 146.2 121.0 150.6 121.0 C155.0 121.0 155.0 111.0 157.5 111.0 L157.5 111.0 C160.0 111.0 160.0 114.9 164.4 114.9 C168.8 114.9 168.8 109.5 171.2 109.5 L171.2 109.5 C173.7 109.5 173.7 116.6 178.1 116.6 C182.5 116.6 182.5 104.5 185.0 104.5 L185.0 102.0 Z" fill="url(#icingSide)"/>
+            <ellipse cx="130" cy="102" rx="55" ry="7.5" fill="url(#icingTop)"/>
+            <circle cx="78.0" cy="149.4" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="86.0" cy="151.5" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="94.0" cy="152.7" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="102.0" cy="153.5" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="110.0" cy="154.0" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="118.0" cy="154.3" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="126.0" cy="154.5" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="134.0" cy="154.5" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="142.0" cy="154.3" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="150.0" cy="154.0" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="158.0" cy="153.5" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="166.0" cy="152.7" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="174.0" cy="151.5" r="2.7" fill="url(#goldBead)"/>
+            <circle cx="182.0" cy="149.4" r="2.7" fill="url(#goldBead)"/>
+
+            <!-- Sprinkles on top -->
+            <rect x="96" y="100" width="4" height="1.6" rx="0.8" fill="#C9A456" transform="rotate(-25 98 101)"/>
+            <rect x="162" y="101" width="4" height="1.6" rx="0.8" fill="#8B2346" transform="rotate(30 164 102)"/>
+            <rect x="141" y="106" width="4" height="1.6" rx="0.8" fill="#D48A9E" transform="rotate(-10 143 107)"/>
+            <rect x="116" y="106.5" width="4" height="1.6" rx="0.8" fill="#C9A456" transform="rotate(40 118 107)"/>
+            <circle cx="88" cy="103" r="1.3" fill="#FFF3CF"/>
+            <circle cx="171" cy="104" r="1.3" fill="#FFF3CF"/>
+
+            <!-- Candle at x=106 -->
+            <ellipse cx="106" cy="103.5" rx="6.5" ry="2.2" fill="rgba(43, 18, 25, 0.18)"/>
+            <rect x="101.5" y="69.5" width="9" height="34" rx="2" fill="url(#stripeGold)"/>
+            <rect x="102.6" y="71.5" width="2" height="30" rx="1" fill="#FFFFFF" opacity="0.45"/>
+            <rect x="108.2" y="70.5" width="2.3" height="32" rx="1" fill="rgba(43, 18, 25, 0.15)"/>
+            <ellipse cx="106" cy="69.5" rx="4.5" ry="1.6" fill="#FFF6EF"/>
+            <path d="M106 69.5 q0.6 -3 -0.2 -6" stroke="#3A2A22" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle class="flame-glow" cx="106" cy="55.5" r="17" fill="url(#flameGlow)"/>
+            <path class="candle-flame delay-1" d="M106 39.5 C113.5 49.5 114 58.5 106 64.5 C98 58.5 98.5 49.5 106 39.5 Z" fill="url(#flameOuter)"/>
+            <path class="candle-flame delay-1" d="M106 48.5 C109.6 53.5 109.8 58.5 106 62.0 C102.2 58.5 102.4 53.5 106 48.5 Z" fill="#FFFDF2"/>
+            <ellipse class="candle-flame delay-1" cx="106" cy="62.0" rx="2.2" ry="2.6" fill="#7E9BFF" opacity="0.55"/>
+            <circle class="smoke-puff s1" cx="106" cy="57.5" r="5.5" fill="#CDB8BE"/>
+            <!-- Candle at x=130 -->
+            <ellipse cx="130" cy="106.0" rx="6.5" ry="2.2" fill="rgba(43, 18, 25, 0.18)"/>
+            <rect x="125.5" y="66" width="9" height="40" rx="2" fill="url(#stripeWine)"/>
+            <rect x="126.6" y="68" width="2" height="36" rx="1" fill="#FFFFFF" opacity="0.45"/>
+            <rect x="132.2" y="67" width="2.3" height="38" rx="1" fill="rgba(43, 18, 25, 0.15)"/>
+            <ellipse cx="130" cy="66" rx="4.5" ry="1.6" fill="#FFF6EF"/>
+            <path d="M130 66 q0.6 -3 -0.2 -6" stroke="#3A2A22" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle class="flame-glow" cx="130" cy="52" r="17" fill="url(#flameGlow)"/>
+            <path class="candle-flame" d="M130 36 C137.5 46 138 55 130 61 C122 55 122.5 46 130 36 Z" fill="url(#flameOuter)"/>
+            <path class="candle-flame" d="M130 45 C133.6 50 133.8 55 130 58.5 C126.2 55 126.4 50 130 45 Z" fill="#FFFDF2"/>
+            <ellipse class="candle-flame" cx="130" cy="58.5" rx="2.2" ry="2.6" fill="#7E9BFF" opacity="0.55"/>
+            <circle class="smoke-puff s2" cx="130" cy="54" r="5.5" fill="#CDB8BE"/>
+            <!-- Candle at x=154 -->
+            <ellipse cx="154" cy="103.5" rx="6.5" ry="2.2" fill="rgba(43, 18, 25, 0.18)"/>
+            <rect x="149.5" y="69.5" width="9" height="34" rx="2" fill="url(#stripeGold)"/>
+            <rect x="150.6" y="71.5" width="2" height="30" rx="1" fill="#FFFFFF" opacity="0.45"/>
+            <rect x="156.2" y="70.5" width="2.3" height="32" rx="1" fill="rgba(43, 18, 25, 0.15)"/>
+            <ellipse cx="154" cy="69.5" rx="4.5" ry="1.6" fill="#FFF6EF"/>
+            <path d="M154 69.5 q0.6 -3 -0.2 -6" stroke="#3A2A22" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle class="flame-glow" cx="154" cy="55.5" r="17" fill="url(#flameGlow)"/>
+            <path class="candle-flame delay-2" d="M154 39.5 C161.5 49.5 162 58.5 154 64.5 C146 58.5 146.5 49.5 154 39.5 Z" fill="url(#flameOuter)"/>
+            <path class="candle-flame delay-2" d="M154 48.5 C157.6 53.5 157.8 58.5 154 62.0 C150.2 58.5 150.4 53.5 154 48.5 Z" fill="#FFFDF2"/>
+            <ellipse class="candle-flame delay-2" cx="154" cy="62.0" rx="2.2" ry="2.6" fill="#7E9BFF" opacity="0.55"/>
+            <circle class="smoke-puff s3" cx="154" cy="57.5" r="5.5" fill="#CDB8BE"/>
+          </svg>
+
+          <span id="wish-prompt" class="wish-prompt">
+            Tap the candles to make a wish ✨
+          </span>
+        </button>
+      </div>
+
+      <!-- Final Birthday Message Card -->
+      <article class="final-card reveal">
+        <h2 class="final-heading"><em>Happy Birthday, Raghul ❤️</em></h2>
+        <div class="final-lines">
+          <p>If moments were stars, I'd save every little moment with you and keep them shining in my sky.</p>
+          <p>There's something about your presence that makes even ordinary days feel special. And I don't know how to explain it, but there's always a quiet excitement in me whenever I know I'll get to spend a little time with you.</p>
+          <p>You've found a place in my heart that words could never fully describe. And whenever you need a reminder, just know that Krithi is wishing you happiness, success, and all the beautiful things life has to offer, always.</p>
+          <p><em>Lots of happiness and love. 😘❤️</em></p>
+        </div>
+      </article>
+    </section>
+
+    <!-- Footer with Replay Button -->
+    <footer class="site-footer reveal">
+      <button id="replay-btn" class="btn-replay" type="button">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12a9 9 0 1 0 3-6.7L3 8"></path>
+          <path d="M3 3v5h5"></path>
+        </svg>
+        <span>Replay Surprise</span>
+      </button>
+    </footer>
+  </main>
+
+  <script>
+    /**
+     * ====================================================================
+     * WINE RED INTERACTIVE BIRTHDAY SURPRISE SCRIPT
+     * Clean, zero-dependency vanilla JS with full error handling so
+     * missing audio files or browser quirks never block any interaction.
+     * ====================================================================
+     */
+    (function () {
+      'use strict';
+
+      const body = document.body;
+      const openingGate = document.getElementById('opening-gate');
+      const openSurpriseBtn = document.getElementById('open-surprise-btn');
+      const mainContent = document.getElementById('main-content');
+      const replayBtn = document.getElementById('replay-btn');
+      const scrollCueBtn = document.getElementById('scroll-cue-btn');
+
+      const bgMusic = document.getElementById('bg-music');
+      const audioToggle = document.getElementById('audio-toggle');
+      const audioTooltip = document.getElementById('audio-tooltip');
+      const audioIconPlay = document.getElementById('audio-icon-play');
+      const audioIconPause = document.getElementById('audio-icon-pause');
+
+      const cakeButton = document.getElementById('cake-button');
+      const wishPrompt = document.getElementById('wish-prompt');
+      const flipCards = document.querySelectorAll('.flip-card');
+      const polaroidCards = document.querySelectorAll('.polaroid-card');
+      const revealTargets = document.querySelectorAll('.reveal, .letter-para');
+
+      let isPlaying = false;
+      let audioUnavailable = false;
+      let tooltipTimer = null;
+      let gateCloseTimer = null;
+
+      /* ------------------------------------------------------------------
+         1. AUDIO CONTROLLER (ERROR-PROOF WITH GRACEFUL FALLBACK)
+         ------------------------------------------------------------------ */
+      try {
+        bgMusic.volume = 0.25;
+      } catch (_e) {}
+
+      function showAudioTooltip(message, duration) {
+        audioTooltip.textContent = message;
+        audioTooltip.classList.add('visible');
+        clearTimeout(tooltipTimer);
+        tooltipTimer = setTimeout(function () {
+          audioTooltip.classList.remove('visible');
+        }, duration || 2500);
+      }
+
+      function updateAudioUI() {
+        if (audioUnavailable) {
+          audioToggle.classList.remove('playing');
+          audioToggle.classList.add('unavailable');
+          audioIconPlay.style.display = 'block';
+          audioIconPause.style.display = 'none';
+          return;
+        }
+        if (isPlaying) {
+          audioToggle.classList.add('playing');
+          audioIconPlay.style.display = 'none';
+          audioIconPause.style.display = 'block';
+        } else {
+          audioToggle.classList.remove('playing');
+          audioIconPlay.style.display = 'block';
+          audioIconPause.style.display = 'none';
+        }
+      }
+
+      bgMusic.addEventListener('error', function () {
+        audioUnavailable = true;
+        isPlaying = false;
+        updateAudioUI();
+      });
+
+      function attemptPlayMusic(silentFallback) {
+        if (audioUnavailable) {
+          if (!silentFallback) {
+            showAudioTooltip('Add music.mp4 to enable audio');
+          }
+          return;
+        }
+        try {
+          const playPromise = bgMusic.play();
+          if (playPromise && typeof playPromise.then === 'function') {
+            playPromise
+              .then(function () {
+                isPlaying = true;
+                updateAudioUI();
+                if (!silentFallback) {
+                  showAudioTooltip('Playing softly ♪', 1800);
+                }
+              })
+              .catch(function () {
+                isPlaying = false;
+                if (bgMusic.networkState === HTMLMediaElement.NETWORK_NO_SOURCE || bgMusic.error) {
+                  audioUnavailable = true;
+                }
+                updateAudioUI();
+                if (!silentFallback) {
+                  showAudioTooltip(
+                    audioUnavailable ? 'Add music.mp4 to enable audio' : 'Tap again to play music'
+                  );
+                }
+              });
+          }
+        } catch (_err) {
+          audioUnavailable = true;
+          isPlaying = false;
+          updateAudioUI();
+        }
+      }
+
+      audioToggle.addEventListener('click', function () {
+        if (audioUnavailable) {
+          showAudioTooltip('Add music.mp4 to enable audio');
+          return;
+        }
+        if (isPlaying) {
+          try {
+            bgMusic.pause();
+          } catch (_e) {}
+          isPlaying = false;
+          updateAudioUI();
+          showAudioTooltip('Music paused', 1600);
+        } else {
+          // Background music and a clip's sound shouldn't play over each other
+          if (typeof muteAllVideos === 'function') muteAllVideos();
+          musicPausedForVideo = false;
+          attemptPlayMusic(false);
+        }
+      });
+
+      /* ------------------------------------------------------------------
+         2. AMBIENT DRIFTING PETALS & SPARKLES CANVAS
+         ------------------------------------------------------------------ */
+      const ambientCanvas = document.getElementById('ambient-canvas');
+      const ambientCtx = ambientCanvas.getContext('2d');
+      const confettiCanvas = document.getElementById('confetti-canvas');
+      const confettiCtx = confettiCanvas.getContext('2d');
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let ambientParticles = [];
+      let w = window.innerWidth;
+      let h = window.innerHeight;
+
+      function resizeCanvases() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        w = window.innerWidth;
+        h = window.innerHeight;
+
+        ambientCanvas.width = w * dpr;
+        ambientCanvas.height = h * dpr;
+        ambientCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        confettiCanvas.width = w * dpr;
+        confettiCanvas.height = h * dpr;
+        confettiCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function createAmbientParticle(randomY) {
+        const isSparkle = Math.random() < 0.42;
+        const colors = [
+          'rgba(139, 35, 70, 0.28)',
+          'rgba(212, 138, 158, 0.36)',
+          'rgba(223, 192, 122, 0.36)',
+          'rgba(255, 252, 252, 0.78)'
+        ];
+        return {
+          x: Math.random() * w,
+          y: randomY ? Math.random() * h : -15,
+          size: isSparkle ? 1.8 + Math.random() * 2.2 : 4 + Math.random() * 5.2,
+          speedY: 0.22 + Math.random() * 0.4,
+          speedX: (Math.random() - 0.5) * 0.32,
+          swayPhase: Math.random() * Math.PI * 2,
+          swaySpeed: 0.008 + Math.random() * 0.012,
+          rotation: Math.random() * Math.PI * 2,
+          rotSpeed: (Math.random() - 0.5) * 0.015,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          isSparkle: isSparkle
+        };
+      }
+
+      function initAmbient() {
+        const count = Math.min(Math.floor(w / 34), 26);
+        ambientParticles = [];
+        for (let i = 0; i < count; i++) {
+          ambientParticles.push(createAmbientParticle(true));
+        }
+      }
+
+      function animateAmbient() {
+        if (prefersReducedMotion) return;
+        ambientCtx.clearRect(0, 0, w, h);
+
+        for (let i = 0; i < ambientParticles.length; i++) {
+          const p = ambientParticles[i];
+          p.y += p.speedY;
+          p.swayPhase += p.swaySpeed;
+          p.x += p.speedX + Math.sin(p.swayPhase) * 0.25;
+          p.rotation += p.rotSpeed;
+
+          if (p.y > h + 20) {
+            ambientParticles[i] = createAmbientParticle(false);
+            continue;
+          }
+
+          ambientCtx.save();
+          ambientCtx.translate(p.x, p.y);
+          ambientCtx.rotate(p.rotation);
+          ambientCtx.fillStyle = p.color;
+
+          if (p.isSparkle) {
+            ambientCtx.beginPath();
+            ambientCtx.arc(0, 0, p.size, 0, Math.PI * 2);
+            ambientCtx.fill();
+          } else {
+            ambientCtx.beginPath();
+            ambientCtx.ellipse(0, 0, p.size, p.size * 0.55, 0, 0, Math.PI * 2);
+            ambientCtx.fill();
+          }
+          ambientCtx.restore();
+        }
+        requestAnimationFrame(animateAmbient);
+      }
+
+      /* ------------------------------------------------------------------
+         3. WINE RED, CHAMPAGNE GOLD & WHITE CONFETTI ENGINE
+         ------------------------------------------------------------------ */
+      let confettiPieces = [];
+      let confettiAnimating = false;
+
+      function launchConfetti(originX, originY, count) {
+        if (prefersReducedMotion) return;
+        const palette = ['#8B2346', '#6B1A35', '#E3AEBC', '#DFC07A', '#C9A456', '#FFFFFF'];
+        const total = count || 90;
+
+        for (let i = 0; i < total; i++) {
+          const angle = Math.random() * Math.PI * 2;
+          const velocity = 3.2 + Math.random() * 7.6;
+          confettiPieces.push({
+            x: originX,
+            y: originY,
+            vx: Math.cos(angle) * velocity,
+            vy: Math.sin(angle) * velocity - 3.8,
+            size: 5 + Math.random() * 6,
+            color: palette[Math.floor(Math.random() * palette.length)],
+            rotation: Math.random() * Math.PI * 2,
+            rotSpeed: (Math.random() - 0.5) * 0.22,
+            gravity: 0.14 + Math.random() * 0.06,
+            drag: 0.985,
+            opacity: 1,
+            shape: Math.random() < 0.35 ? 'circle' : 'rect'
+          });
+        }
+
+        if (!confettiAnimating) {
+          confettiAnimating = true;
+          requestAnimationFrame(animateConfetti);
+        }
+      }
+
+      function drawHeart(ctx, size) {
+        const s = size / 2;
+        ctx.beginPath();
+        ctx.moveTo(0, s * 0.75);
+        ctx.bezierCurveTo(-s * 1.25, -s * 0.05, -s * 0.7, -s * 1.15, 0, -s * 0.4);
+        ctx.bezierCurveTo(s * 0.7, -s * 1.15, s * 1.25, -s * 0.05, 0, s * 0.75);
+        ctx.closePath();
+        ctx.fill();
+      }
+
+      // Hearts that float up and drift side to side (used when the wish is made)
+      function launchHearts(originX, originY, count) {
+        if (prefersReducedMotion) return;
+        const palette = ['#8B2346', '#A9385C', '#B04A68', '#D48A9E', '#E3AEBC', '#C9A456'];
+        const total = count || 20;
+        for (let i = 0; i < total; i++) {
+          confettiPieces.push({
+            x: originX + (Math.random() - 0.5) * 90,
+            y: originY + (Math.random() - 0.5) * 30,
+            vx: (Math.random() - 0.5) * 2.2,
+            vy: -(1.6 + Math.random() * 2.6),
+            size: 12 + Math.random() * 14,
+            color: palette[Math.floor(Math.random() * palette.length)],
+            rotation: (Math.random() - 0.5) * 0.5,
+            rotSpeed: (Math.random() - 0.5) * 0.01,
+            gravity: -0.015,
+            drag: 0.992,
+            opacity: 1,
+            fade: 0.006 + Math.random() * 0.004,
+            sway: 0.4 + Math.random() * 0.6,
+            swayPhase: Math.random() * Math.PI * 2,
+            shape: 'heart'
+          });
+        }
+        if (!confettiAnimating) {
+          confettiAnimating = true;
+          requestAnimationFrame(animateConfetti);
+        }
+      }
+
+      function animateConfetti() {
+        confettiCtx.clearRect(0, 0, w, h);
+
+        for (let i = confettiPieces.length - 1; i >= 0; i--) {
+          const c = confettiPieces[i];
+          c.vx *= c.drag;
+          c.vy = c.vy * c.drag + c.gravity;
+          c.x += c.vx;
+          c.y += c.vy;
+          if (c.sway) {
+            c.swayPhase += 0.05;
+            c.x += Math.sin(c.swayPhase) * c.sway;
+          }
+          c.rotation += c.rotSpeed;
+          c.opacity -= c.fade || 0.0085;
+
+          if (c.opacity <= 0 || c.y > h + 30 || c.y < -40) {
+            confettiPieces.splice(i, 1);
+            continue;
+          }
+
+          confettiCtx.save();
+          confettiCtx.globalAlpha = Math.max(0, c.opacity);
+          confettiCtx.translate(c.x, c.y);
+          confettiCtx.rotate(c.rotation);
+          confettiCtx.fillStyle = c.color;
+
+          if (c.shape === 'heart') {
+            drawHeart(confettiCtx, c.size);
+          } else if (c.shape === 'circle') {
+            confettiCtx.beginPath();
+            confettiCtx.arc(0, 0, c.size * 0.45, 0, Math.PI * 2);
+            confettiCtx.fill();
+          } else {
+            confettiCtx.fillRect(-c.size / 2, -c.size * 0.3, c.size, c.size * 0.6);
+          }
+          confettiCtx.restore();
+        }
+
+        if (confettiPieces.length > 0) {
+          requestAnimationFrame(animateConfetti);
+        } else {
+          confettiAnimating = false;
+          confettiCtx.clearRect(0, 0, w, h);
+        }
+      }
+
+      /* ------------------------------------------------------------------
+         4. SCROLL REVEAL (INTERSECTION OBSERVER + SAFETY FALLBACK)
+         ------------------------------------------------------------------ */
+      let revealObserver = null;
+
+      function revealVisibleInViewport() {
+        const viewHeight = window.innerHeight || document.documentElement.clientHeight;
+        revealTargets.forEach(function (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < viewHeight * 0.96 && rect.bottom > 0) {
+            el.classList.add('is-visible');
+          }
+        });
+      }
+
+      function setupScrollReveal() {
+        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+          revealTargets.forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          return;
+        }
+
+        if (revealObserver) {
+          revealObserver.disconnect();
+        }
+
+        revealObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -24px 0px' }
+        );
+
+        revealTargets.forEach(function (el) {
+          revealObserver.observe(el);
+        });
+
+        // Safety fallback so hero & currently visible elements always appear immediately
+        requestAnimationFrame(revealVisibleInViewport);
+      }
+
+      /* ------------------------------------------------------------------
+         5. INTERACTIVE HANDLERS
+         ------------------------------------------------------------------ */
+      // Opening Gate -> Reveal Main Website
+      openSurpriseBtn.addEventListener('click', function () {
+        const rect = openSurpriseBtn.getBoundingClientRect();
+        launchConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2, 100);
+
+        // Attempt background music safely (never blocks opening)
+        attemptPlayMusic(true);
+
+        // Smoothly fade out opening gate and unlock scrolling
+        openingGate.classList.add('is-closing');
+        body.classList.remove('gate-locked');
+        mainContent.classList.add('is-revealed');
+        mainContent.setAttribute('aria-hidden', 'false');
+
+        // Start scroll reveals immediately
+        setupScrollReveal();
+
+        clearTimeout(gateCloseTimer);
+        gateCloseTimer = setTimeout(function () {
+          openingGate.style.display = 'none';
+        }, 700);
+      });
+
+      // Smooth Scroll Cue -> Timeline Section
+      if (scrollCueBtn) {
+        scrollCueBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.getElementById('memories');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      }
+
+      // Polaroid Mobile/Desktop Tap Lift
+      polaroidCards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          const alreadyLifted = card.classList.contains('is-lifted');
+          polaroidCards.forEach(function (c) {
+            c.classList.remove('is-lifted');
+          });
+          if (!alreadyLifted) {
+            card.classList.add('is-lifted');
+          }
+        });
+      });
+
+      // Timeline Videos (muted loop while visible, optional sound per clip)
+      const memoryVideos = document.querySelectorAll('.memory-video');
+      let musicPausedForVideo = false;
+
+      function muteVideo(video) {
+        video.muted = true;
+        const frame = video.closest('.polaroid-frame');
+        const btn = frame.querySelector('.video-sound-btn');
+        frame.classList.remove('sound-on');
+        btn.setAttribute('aria-pressed', 'false');
+        btn.setAttribute('aria-label', 'Turn video sound on');
+      }
+
+      function resumeMusicAfterVideo() {
+        if (musicPausedForVideo) {
+          musicPausedForVideo = false;
+          attemptPlayMusic(true);
+        }
+      }
+
+      function muteAllVideos() {
+        memoryVideos.forEach(muteVideo);
+      }
+
+      memoryVideos.forEach(function (video) {
+        const frame = video.closest('.polaroid-frame');
+        const btn = frame.querySelector('.video-sound-btn');
+
+        function showVideo() {
+          if (!video.videoWidth) return;
+          frame.classList.add('has-video');
+          frame.classList.toggle('is-portrait', video.videoHeight > video.videoWidth);
+        }
+        video.addEventListener('loadedmetadata', showVideo);
+        video.addEventListener('loadeddata', showVideo);
+        video.addEventListener('playing', showVideo);
+        if (video.readyState >= 1) showVideo(); // already loaded before this script ran
+
+        video.addEventListener('error', function () {
+          frame.classList.remove('has-video', 'is-portrait', 'sound-on', 'no-audio');
+        });
+
+        // Hide the speaker button on clips that have no sound track
+        function checkForAudio() {
+          if (video.currentTime < 0.6) return;
+          video.removeEventListener('timeupdate', checkForAudio);
+          const silent =
+            video.mozHasAudio === false ||
+            (video.audioTracks && video.audioTracks.length === 0) ||
+            video.webkitAudioDecodedByteCount === 0;
+          frame.classList.toggle('no-audio', !!silent);
+        }
+        video.addEventListener('timeupdate', checkForAudio);
+
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation(); // don't trigger the polaroid lift
+          const turnOn = video.muted;
+          muteAllVideos();
+          if (turnOn) {
+            video.muted = false;
+            frame.classList.add('sound-on');
+            btn.setAttribute('aria-pressed', 'true');
+            btn.setAttribute('aria-label', 'Turn video sound off');
+            if (isPlaying) {
+              try { bgMusic.pause(); } catch (_e) {}
+              isPlaying = false;
+              updateAudioUI();
+              musicPausedForVideo = true;
+            }
+            video.play().catch(function () {});
+          } else {
+            resumeMusicAfterVideo();
+          }
+        });
+      });
+
+      if ('IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              // Observe the frame (always visible), not the video (hidden until loaded).
+              // Calling play() is what makes iPhone/iPad Safari start loading the file.
+              const video = entry.target.querySelector('.memory-video');
+              if (!video || video.error) return;
+              if (entry.isIntersecting) {
+                // Start once roughly a third of the clip is on screen
+                if (
+                  entry.intersectionRatio >= 0.35 &&
+                  mainContent.classList.contains('is-revealed') &&
+                  (!prefersReducedMotion || !video.muted)
+                ) {
+                  video.play().catch(function () {});
+                }
+              } else {
+                video.pause();
+                if (!video.muted) {
+                  muteVideo(video);
+                  resumeMusicAfterVideo();
+                }
+              }
+            });
+          },
+          { threshold: [0, 0.35] }
+        );
+        memoryVideos.forEach(function (video) {
+          videoObserver.observe(video.closest('.polaroid-frame'));
+        });
+      }
+
+      // Little Reminders photos (icon stays if a photo is missing)
+      document.querySelectorAll('.flip-photo').forEach(function (img) {
+        const front = img.closest('.flip-front');
+        function show() { if (img.naturalWidth > 0) front.classList.add('has-photo'); }
+        img.addEventListener('load', show);
+        img.addEventListener('error', function () { front.classList.remove('has-photo'); });
+        if (img.complete) show();
+      });
+
+      // 3D Flip Cards (Reliably toggle .is-flipped on click/tap)
+      flipCards.forEach(function (card) {
+        card.addEventListener('click', function () {
+          const isFlipped = card.classList.toggle('is-flipped');
+          card.setAttribute('aria-pressed', String(isFlipped));
+        });
+      });
+
+      // Interactive Birthday Cake (Blow Out Candles)
+      let wishMade = false;
+      cakeButton.addEventListener('click', function () {
+        if (wishMade) return;
+        wishMade = true;
+        cakeButton.classList.add('wished');
+        wishPrompt.textContent = 'Wish made! May all your dreams come true ✨';
+
+        const rect = cakeButton.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const cy = rect.top + rect.height * 0.35;
+        launchHearts(cx, cy, 28);
+        launchConfetti(cx, cy, 36);
+        setTimeout(function () { launchHearts(cx - 50, cy, 18); }, 300);
+        setTimeout(function () { launchHearts(cx + 50, cy, 18); }, 550);
+        setTimeout(function () { launchHearts(cx, cy - 10, 22); }, 900);
+      });
+
+      // Replay Surprise Button
+      replayBtn.addEventListener('click', function () {
+        wishMade = false;
+        cakeButton.classList.remove('wished');
+        wishPrompt.textContent = 'Tap the candles to make a wish ✨';
+
+        flipCards.forEach(function (card) {
+          card.classList.remove('is-flipped');
+          card.setAttribute('aria-pressed', 'false');
+        });
+
+        polaroidCards.forEach(function (card) {
+          card.classList.remove('is-lifted');
+        });
+
+        memoryVideos.forEach(function (video) {
+          video.pause();
+          try { video.currentTime = 0; } catch (_e) {}
+        });
+        muteAllVideos();
+        musicPausedForVideo = false;
+
+        revealTargets.forEach(function (el) {
+          el.classList.remove('is-visible');
+        });
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        setTimeout(function () {
+          mainContent.classList.remove('is-revealed');
+          mainContent.setAttribute('aria-hidden', 'true');
+          openingGate.style.display = 'flex';
+          // Force reflow so transition animates smoothly back in
+          void openingGate.offsetWidth;
+          openingGate.classList.remove('is-closing');
+          body.classList.add('gate-locked');
+        }, 420);
+      });
+
+      /* ------------------------------------------------------------------
+         6. INITIALIZATION
+         ------------------------------------------------------------------ */
+      resizeCanvases();
+      initAmbient();
+      animateAmbient();
+
+      window.addEventListener('resize', function () {
+        resizeCanvases();
+        initAmbient();
+      });
+
+      window.addEventListener('scroll', revealVisibleInViewport, { passive: true });
+    })();
+  </script>
+</body>
+</html>
